@@ -1,0 +1,47 @@
+    * {
+        box-sizing: border-box;
+        position: relative;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+    }
+
+    body {
+        background:#fff;
+        font-family:helvetica, arial, sans-serif;
+        color:#222;
+        font-size:16px;
+    }
+
+    form {
+        margin:3em;
+    }
+
+    form div.row {
+        width:800px;
+        padding:1em;
+        overflow:hidden;
+        background:#ededed;
+        border-radius:0.5em;
+        -moz-border-radius:0.5em;
+        -webkit-border-radius:0.5em;
+    }
+
+    form div.file-preview {
+        background:#ccc;
+        border:5px solid #fff;
+        box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow:0 0 4px rgba(0, 0, 0, 0.5);
+        display:inline-block;
+        float:left;
+        margin-right:1em;
+        width:200px;
+        height:200px;
+        text-align:center;
+    }
+
+    form div.row label {
+        font-weight:bold;
+        display:block;
+        margin-bottom:0.25em;
+    }

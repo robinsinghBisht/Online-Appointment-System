@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Online Appointment System</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<context-param>
+		<param-name>oracle_table</param-name>
+		<param-value>yes</param-value>
+	</context-param>
+	<context-param>
+		<param-name>sql_table</param-name>
+		<param-value>no</param-value>
+	</context-param>
+	<context-param>
+		<param-name>time_slot</param-name>
+		<param-value>15</param-value>
+	</context-param>
+	
+	
+	<servlet>
+		<servlet-name>ApplicationInitializer</servlet-name>
+		<servlet-class>load_on_startup.ApplicationInitializer</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>TimeSlotsHashMap</servlet-name>
+		<servlet-class>load_on_startup.TimeSlotsHashMap</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	
+	
+	
+	<filter>
+		<filter-name>PatientLoginFilter</filter-name>
+		<filter-class>root.filters.PatientLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PatientLoginFilter</filter-name>
+		<url-pattern>/patientLogin.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>PatientLoginSuccessFilter</filter-name>
+		<filter-class>root.filters.PatientLoginSuccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PatientLoginSuccessFilter</filter-name>
+		<url-pattern>/patientLoginSuccess.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>OldPatientLoginFilter</filter-name>
+		<filter-class>root.filters.OldPatientLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OldPatientLoginFilter</filter-name>
+		<url-pattern>/oldPatientLogin.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>OldPatientLoginSuccessFilter</filter-name>
+		<filter-class>root.filters.OldPatientLoginSuccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OldPatientLoginSuccessFilter</filter-name>
+		<url-pattern>/oldPatientLoginSuccess.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>AdminLoginFilter</filter-name>
+		<filter-class>root.filters.AdminLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminLoginFilter</filter-name>
+		<url-pattern>/___adminLogin___.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>AdminLoginSuccessFilter</filter-name>
+		<filter-class>root.filters.AdminLoginSuccessFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminLoginSuccessFilter</filter-name>
+		<url-pattern>/___adminLoginSuccess___.jsp</url-pattern>
+	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>PatientSignUpCompletedFilter</filter-name>
+		<filter-class>root.filters.PatientSignUpCompletedFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PatientSignUpCompletedFilter</filter-name>
+		<url-pattern>/patientSignUpCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>PatientUploadImageFilter</filter-name>
+		<filter-class>root.filters.PatientUploadImageFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PatientUploadImageFilter</filter-name>
+		<url-pattern>/patientUploadImage.jsp</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	
+	
+	
+	<filter>
+		<filter-name>SessionCheckFilter</filter-name>
+		<filter-class>root.filters.SessionCheckFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientAppointmentBooking.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientAppointmentBookingCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientAppointmentAnalysis.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientUpdateDetails.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientUpdateDetailsCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientViewDetails.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientUpdateImage.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientUpdateImageCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientChangePassword.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/patientChangePasswordCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- Admin -->
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAddNewDoctor.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAddNewDoctorCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminChangePassword.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminChangePasswordCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAddAppointmentOldPatient.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAddAppointmentOldPatientCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAddOldPatient.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAddOldPatientCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminTellUsAnalysis.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminAppointmentAnalysis.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminPatientAnalysis.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminOldPatientAnalysis.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>SessionCheckFilter</filter-name>
+		<url-pattern>/adminDoctorAnalysis.jsp</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	
+	
+	
+	
+	<filter>
+		<filter-name>AdminChangePasswordCompletedFilter</filter-name>
+		<filter-class>root.filters.AdminChangePasswordCompletedFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AdminChangePasswordCompletedFilter</filter-name>
+		<url-pattern>/adminChangePasswordCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>PatientUpdateImageCompletedFilter</filter-name>
+		<filter-class>root.filters.PatientUpdateImageCompletedFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PatientUpdateImageCompletedFilter</filter-name>
+		<url-pattern>/patientUpdateImageCompleted.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>PatientDetailsFilter</filter-name>
+		<filter-class>root.filters.PatientDetailsFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>PatientDetailsFilter</filter-name>
+		<url-pattern>/patientViewDetails.jsp</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>PatientDetailsFilter</filter-name>
+		<url-pattern>/patientUpdateDetails.jsp</url-pattern>
+	</filter-mapping>
+	
+	
+	<servlet>
+		<servlet-name>SignUp</servlet-name>
+		<jsp-file>/patientSignUp.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SignUp</servlet-name>
+		<url-pattern>/SignUp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Login</servlet-name>
+		<jsp-file>/patientLogin.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login</servlet-name>
+		<url-pattern>/Login</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	
+	
+	<error-page>
+    	<error-code>404</error-code>
+    	<location>/404.jsp</location>
+	</error-page>
+
+
+</web-app>
