@@ -13,9 +13,9 @@ public void init(ServletConfig sc) throws ServletException
 ServletContext ctx=sc.getServletContext();
 String valueOfOracle=ctx.getInitParameter("oracle_table");
 String valueOfSql=ctx.getInitParameter("sql_table");
-String prop=ctx.getRealPath("WEB-INF\\db_properties/db.properties");
-String oracle=ctx.getRealPath("Web-Inf\\db_table_scripts/oracle_table.sql");
-String sql=ctx.getRealPath("Web-Inf\\db_table_scripts/sql_table.sql");
+String prop=ctx.getRealPath("WEB-INF\\db_properties\\db.properties");
+String oracle=ctx.getRealPath("WEB-INF\\db_table_scripts\\oracle_table.sql");
+String sql=ctx.getRealPath("WEB-INF\\db_table_scripts\\sql_table.sql");
 LoadProperties.propLoad(prop);
 
 if(valueOfOracle.equals("yes"))
